@@ -1,0 +1,25 @@
+diff -Naur buildscripts.orig/dkarm-eabi/scripts/build-gcc.sh buildscripts/dkarm-eabi/scripts/build-gcc.sh
+--- buildscripts.orig/dkarm-eabi/scripts/build-gcc.sh	2014-04-02 14:23:50.000000000 +0200
++++ buildscripts/dkarm-eabi/scripts/build-gcc.sh	2014-10-12 20:45:37.222373549 +0200
+@@ -40,7 +40,8 @@
+ if [ ! -f configured-gcc ]
+ then
+ 	CFLAGS="$cflags" CXXFLAGS="$cflags" LDFLAGS="$ldflags" CFLAGS_FOR_TARGET="-O2" CXXFLAGS_FOR_TARGET="-O2" LDFLAGS_FOR_TARGET="" ../../gcc-$GCC_VER/configure \
+-		--enable-languages=c,c++,objc,obj-c++ \
++		--enable-languages=c,c++,ada \
++		--disable-libada --with-system-zlib \
+ 		--with-gnu-as --with-gnu-ld --with-gcc \
+ 		--with-march=armv4t\
+ 		--enable-poison-system-directories \
+diff -Naur buildscripts.orig/select_toolchain.sh buildscripts/select_toolchain.sh
+--- buildscripts.orig/select_toolchain.sh	2014-10-21 10:25:08.917411401 +0200
++++ buildscripts/select_toolchain.sh	2014-10-12 20:55:02.251373326 +0200
+@@ -30,7 +30,7 @@
+ 
+ case "$VERSION" in
+   "1" )
+-    GCC_VER=4.8.2
++    GCC_VER=4.9.0
+     BINUTILS_VER=2.24
+     NEWLIB_VER=2.1.0
+     GDB_VER=7.7

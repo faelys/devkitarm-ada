@@ -1,0 +1,46 @@
+diff -aur tools.orig/dswifi-0.3.16/Makefile tools/dswifi-0.3.16/Makefile
+--- tools.orig/dswifi-0.3.16/Makefile	2014-10-21 10:57:58.819439159 +0200
++++ tools/dswifi-0.3.16/Makefile	2014-10-21 10:57:48.434411995 +0200
+@@ -66,5 +66,5 @@
+ #-------------------------------------------------------------------------------
+ install: dist-bin
+ #-------------------------------------------------------------------------------
+-	bzip2 -cd dswifi-$(VERSION).tar.bz2 | tar -x -C $(DEVKITPRO)/libnds
++	bzip2 -cd dswifi-$(VERSION).tar.bz2 | tar -x -f - -C $(DEVKITPRO)/libnds
+ 
+diff -aur tools.orig/libmirko-0.9.7/Makefile tools/libmirko-0.9.7/Makefile
+--- tools.orig/libmirko-0.9.7/Makefile	2014-10-21 10:57:58.824939913 +0200
++++ tools/libmirko-0.9.7/Makefile	2014-10-21 10:57:48.436412676 +0200
+@@ -80,7 +80,7 @@
+ 
+ install: dist
+ 	mkdir -p $(DEVKITPRO)/libmirko
+-	bzip2 -cd libmirko-$(VERSION).tar.bz2 | tar -xv -C $(DEVKITPRO)/libmirko
++	bzip2 -cd libmirko-$(VERSION).tar.bz2 | tar -f - -xv -C $(DEVKITPRO)/libmirko
+ 
+ 
+ #---------------------------------------------------------------------------------
+diff -aur tools.orig/libnds-1.5.8/Makefile tools/libnds-1.5.8/Makefile
+--- tools.orig/libnds-1.5.8/Makefile	2014-10-21 10:57:58.815162499 +0200
++++ tools/libnds-1.5.8/Makefile	2014-10-21 10:57:48.433548424 +0200
+@@ -55,7 +55,7 @@
+ install: dist-bin
+ #-------------------------------------------------------------------------------
+ 	mkdir -p $(DEVKITPRO)/libnds
+-	bzip2 -cd libnds-$(VERSION).tar.bz2 | tar -x -C $(DEVKITPRO)/libnds
++	bzip2 -cd libnds-$(VERSION).tar.bz2 | tar -x -f - -C $(DEVKITPRO)/libnds
+ 
+ #---------------------------------------------------------------------------------
+ docs:
+diff -aur tools.orig/maxmod-1.0.9/maxmod.mak tools/maxmod-1.0.9/maxmod.mak
+--- tools.orig/maxmod-1.0.9/maxmod.mak	2014-10-21 10:57:58.821413209 +0200
++++ tools/maxmod-1.0.9/maxmod.mak	2014-10-21 10:57:48.435413582 +0200
+@@ -117,7 +117,7 @@
+ $(BUILD):
+ 	@[ -d $@ ] || mkdir -p $@
+ 	@[ -d lib ] || mkdir -p lib
+-	@make --no-print-directory -C $(BUILD) -f $(CURDIR)/maxmod.mak
++	@gmake --no-print-directory -C $(BUILD) -f $(CURDIR)/maxmod.mak
+  
+ #---------------------------------------------------------------------------------
+ clean:

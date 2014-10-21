@@ -1,0 +1,114 @@
+diff -aur buildscripts-orig/build-devkit.sh buildscripts/build-devkit.sh
+--- buildscripts-orig/build-devkit.sh	2014-04-02 23:16:25.000000000 +0200
++++ buildscripts/build-devkit.sh	2014-10-05 11:54:48.964373561 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ #---------------------------------------------------------------------------------
+ # Build scripts for
+ #	devkitARM release 42
+@@ -198,7 +198,7 @@
+ 		libfat-src-${LIBFAT_VER}.tar.bz2"
+ 	hostarchives="gbatools-$GBATOOLS_VER.tar.bz2 dstools-$DSTOOLS_VER.tar.bz2 grit-$GRIT_VER.tar.bz2 ndstool-$NDSTOOL_VER.tar.bz2
+ 		general-tools-$GENERAL_TOOLS_VER.tar.bz2 dlditool-$DLDITOOL_VER.tar.bz2 mmutil-$MMUTIL_VER.tar.bz2
+-		dfu-util-$DFU_UTIL_VER.tar.bz2 stlink-$STLINK_VER.tar.bz2"
++		dfu-util-$DFU_UTIL_VER.tar.bz2"
+ fi
+ 
+ if [ $VERSION -eq 2 ]; then
+@@ -271,7 +271,7 @@
+ fi
+ 
+ echo "stripping installed binaries"
+-. ./strip_bins.sh
++# . ./strip_bins.sh
+ 
+ #---------------------------------------------------------------------------------
+ # Clean up temporary files and source directories
+diff -aur buildscripts-orig/cross-build-i686-w64-mingw32.sh buildscripts/cross-build-i686-w64-mingw32.sh
+--- buildscripts-orig/cross-build-i686-w64-mingw32.sh	2014-04-02 13:58:29.000000000 +0200
++++ buildscripts/cross-build-i686-w64-mingw32.sh	2014-10-05 10:30:51.059373932 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ export CROSSBUILD=i686-w64-mingw32
+ export CROSSLIBPATH=/opt/i686-w64-mingw32/mingw/lib
+ export CROSSBINPATH=/opt/i686-w64-mingw32/mingw/bin
+diff -aur buildscripts-orig/cross-build-x86_64-w64-mingw32.sh buildscripts/cross-build-x86_64-w64-mingw32.sh
+--- buildscripts-orig/cross-build-x86_64-w64-mingw32.sh	2014-04-02 13:58:29.000000000 +0200
++++ buildscripts/cross-build-x86_64-w64-mingw32.sh	2014-10-05 10:30:51.060373459 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ export CROSSBUILD=x86_64-w64-mingw32
+ export CROSSLIBPATH=/opt/x86_64-mingw-w64/mingw/lib
+ export CROSSBINPATH=/opt/x86_64-mingw-w64/mingw/bin
+diff -aur buildscripts-orig/dkarm-eabi/scripts/build-tools.sh buildscripts/dkarm-eabi/scripts/build-tools.sh
+--- buildscripts-orig/dkarm-eabi/scripts/build-tools.sh	2012-04-04 14:39:28.000000000 +0200
++++ buildscripts/dkarm-eabi/scripts/build-tools.sh	2014-10-05 10:30:51.059373932 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ cd $BUILDDIR
+ 
+ for archive in $hostarchives
+diff -aur buildscripts-orig/dkppc/scripts/build-crtls.sh buildscripts/dkppc/scripts/build-crtls.sh
+--- buildscripts-orig/dkppc/scripts/build-crtls.sh	2012-04-04 14:39:28.000000000 +0200
++++ buildscripts/dkppc/scripts/build-crtls.sh	2014-10-05 10:30:51.059373932 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ export DEVKITPPC=$TOOLPATH/devkitPPC
+ export DEVKITPRO=$TOOLPATH
+diff -aur buildscripts-orig/dkppc/scripts/build-gcc.sh buildscripts/dkppc/scripts/build-gcc.sh
+--- buildscripts-orig/dkppc/scripts/build-gcc.sh	2014-04-02 23:12:51.000000000 +0200
++++ buildscripts/dkppc/scripts/build-gcc.sh	2014-10-05 10:30:51.059373932 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ #---------------------------------------------------------------------------------
+ # Check Parameters
+ #---------------------------------------------------------------------------------
+diff -aur buildscripts-orig/dkppc/scripts/build-tools.sh buildscripts/dkppc/scripts/build-tools.sh
+--- buildscripts-orig/dkppc/scripts/build-tools.sh	2012-04-04 14:39:28.000000000 +0200
++++ buildscripts/dkppc/scripts/build-tools.sh	2014-10-05 10:30:51.059373932 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ cd $BUILDDIR
+ 
+ for archive in $hostarchives
+diff -aur buildscripts-orig/select_toolchain.sh buildscripts/select_toolchain.sh
+--- buildscripts-orig/select_toolchain.sh	2014-04-02 23:12:51.000000000 +0200
++++ buildscripts/select_toolchain.sh	2014-10-05 10:30:51.060373459 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ VERSION=0
+ case "$BUILD_DKPRO_PACKAGE" in
+   "1" )
+diff -aur buildscripts-orig/strip_bins.sh buildscripts/strip_bins.sh
+--- buildscripts-orig/strip_bins.sh	2012-05-15 00:51:21.000000000 +0200
++++ buildscripts/strip_bins.sh	2014-10-05 10:30:51.059373932 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ #---------------------------------------------------------------------------------
+ # strip binaries
+ # strip has trouble using wildcards so do it this way instead
+diff -aur buildscripts-orig/strip_toolchain.sh buildscripts/strip_toolchain.sh
+--- buildscripts-orig/strip_toolchain.sh	2012-04-02 20:51:56.000000000 +0200
++++ buildscripts/strip_toolchain.sh	2014-10-05 10:30:51.060373459 +0200
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ echo -n "Looking for configuration file... "
+ if [ -f ./config.sh ]; then
+@@ -28,4 +28,4 @@
+ TOOLPATH=$(echo $INSTALLDIR | sed -e 's/^\([a-zA-Z]\):/\/\1/')
+ export PATH=$PATH:$TOOLPATH/$package/bin
+ 
+-. ./strip_bins.sh
++# . ./strip_bins.sh
