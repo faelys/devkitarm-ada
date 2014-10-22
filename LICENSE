@@ -1,0 +1,35 @@
+  * `build.sh`, `example/*`:
+Original work by Natacha Porté (build.sh, example/*), under ISC lience:
+
+  Copyright (c) 2014, Natacha Porté
+
+  Permission to use, copy, modify, and distribute this software for any
+  purpose with or without fee is hereby granted, provided that the above
+  copyright notice and this permission notice appear in all copies.
+
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+  * `patch/*.diff`:
+Original work by Natacha Porté, but probably too simple to be considered
+IP. If it's not, it probably falls under `devkitARM` license, i.e. GPL
+
+  * `patch/gcc-4.9.0.patch`:
+This is mostly patches from `avr-ada` against 4.9.1, slightly adjusted to
+fit in `devkitARM` build scripts. So I guess it's covered by `avr-ada`
+and/or GCC license, so it probably amounts to GPLv3.
+
+  * `rts/system.ads`:
+This comes directly from `avr-ada`, but still include GCC headers, so I
+think it's covered by GPLv3 with runtime exception.
+
+
+That's a lot of guess work, but it's probably safe to consider everything
+under the GPL except my stand-alone original work (which is definitely
+under the ISC license).
